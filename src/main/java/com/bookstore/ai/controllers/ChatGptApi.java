@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 
 @RestController
-@RequestMapping("/bookstore")
+@RequestMapping("/chat")
 public class ChatGptApi {
     @Autowired
     private OpenAiChatClient chatClient;
 
-    @PostMapping("/ask")
+    @PostMapping("/getResponse")
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     public ChatResponse askQuestion(@RequestBody String question){
         return chatClient.call(new Prompt(question));
